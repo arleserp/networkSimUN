@@ -24,6 +24,7 @@ public class NetworkEnvironmentPheromoneCollection extends NetworkEnvironmentCol
         ActionParameters ac = (ActionParameters) action;
         //System.out.println("cn" + currentNode);
         currentNode = a.getLocation();
+        currentNode.setStatus("v");
         
         visitedNodes.add(currentNode);
 

@@ -11,10 +11,12 @@ import unalcol.agents.Agent;
 import unalcol.agents.AgentProgram;
 import unalcol.agents.NetworkSim.environment.NetworkEnvironmentCollection;
 import unalcol.agents.NetworkSim.environment.NetworkEnvironmentPheromoneCollection;
+import unalcol.agents.NetworkSim.programs.FirstNeighborVisited;
 import unalcol.agents.NetworkSim.programs.LevyWalkSynchronizationProgram;
 import unalcol.agents.NetworkSim.programs.PheromoneReplicationProgram;
 import unalcol.agents.NetworkSim.programs.PheromoneSynchronizationProgram;
 import unalcol.agents.NetworkSim.programs.RandomSynchronizationProgram;
+import unalcol.agents.NetworkSim.programs.SecondNeighborVisited;
 import unalcol.agents.simulate.Environment;
 import unalcol.agents.simulate.util.SimpleLanguage;
 
@@ -51,6 +53,12 @@ public class MotionProgramSimpleFactory {
                 break;
             case "levywalk":
                 program = new LevyWalkSynchronizationProgram(pf);
+                break;
+            case "FirstNeighbor":
+                program = new FirstNeighborVisited(pf);
+                break;
+            case "SecondNeighbor":
+                program = new SecondNeighborVisited(pf);
                 break;
             default:
                 program = new RandomSynchronizationProgram(pf);

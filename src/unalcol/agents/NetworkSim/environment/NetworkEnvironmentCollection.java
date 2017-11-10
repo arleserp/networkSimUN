@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -68,6 +69,7 @@ public class NetworkEnvironmentCollection extends Environment {
         ActionParameters ac = (ActionParameters) action;
         currentNode = a.getLocation();
         visitedNodes.add(currentNode);
+        currentNode.setStatus("v");
 
         getLocationAgents().set(a.getId(), a.getLocation());
 
@@ -159,6 +161,18 @@ public class NetworkEnvironmentCollection extends Environment {
         //System.out.println("agent" + anAgent.getId() + "- neighbor: " +  getTopology().getNeighbors(anAgent.getLocation()));
         //Load data in Agent
         //clone ArrayList
+        p.setAttribute("currentLocation", anAgent.getLocation());
+        HashSet<GraphElements.MyVertex> me = (HashSet<GraphElements.MyVertex>) getTopology().getNeighbors(anAgent.getLocation());
+        ArrayList<GraphElements.MyVertex> tt = new ArrayList<>();
+        
+        for(GraphElements.MyVertex index : me){
+            HashSet<GraphElements.MyVertex> vecino = (HashSet<GraphElements.MyVertex>) getTopology().getNeighbors(index);
+            for(GraphElements.MyVertex v3 : vecino){
+                tt.add(v3);
+            }
+        }
+        p.setAttribute("segundosvecinos", tt);
+        
         ArrayList<Object> copy = new ArrayList<>(anAgent.getLocation().getData());
         //System.out.println("copy" + copy);
         Iterator<Object> it = copy.iterator();
