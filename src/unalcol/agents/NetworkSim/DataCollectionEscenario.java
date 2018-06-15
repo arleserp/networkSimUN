@@ -5,7 +5,6 @@
  */
 package unalcol.agents.NetworkSim;
 
-
 import unalcol.agents.NetworkSim.environment.NetworkEnvironmentCollection;
 import edu.uci.ics.jung.graph.Graph;
 import java.util.ArrayList;
@@ -148,6 +147,9 @@ public class DataCollectionEscenario implements Runnable {
                 if (world instanceof NetworkEnvironmentPheromoneCollection && SimulationParameters.motionAlg.equals("carriers")) {
                     ((NetworkEnvironmentPheromoneCollection) world).evaporatePheromone();
                 }
+                if (world instanceof NetworkEnvironmentPheromoneCollection && SimulationParameters.motionAlg.equals("FirstNeighborPh")) {
+                    ((NetworkEnvironmentPheromoneCollection) world).evaporatePheromone();
+                }
                 /*
             if (world instanceof WorldTemperaturesOneStepOnePheromoneHybridLWEvaporationImpl) {
                 ((WorldTemperaturesOneStepOnePheromoneHybridLWEvaporationImpl) world).evaporatePheromone();
@@ -175,8 +177,8 @@ public class DataCollectionEscenario implements Runnable {
     private GraphElements.MyVertex getLocation(Graph<GraphElements.MyVertex, String> g) {
         if (SimulationParameters.filenameLoc.length() > 1) {
             GraphElements.MyVertex tmp = locations.get(indexLoc++);
-            for(GraphElements.MyVertex v : g.getVertices()){
-                if(v.toString().equals(tmp.toString())){
+            for (GraphElements.MyVertex v : g.getVertices()) {
+                if (v.toString().equals(tmp.toString())) {
                     return v;
                 }
             }

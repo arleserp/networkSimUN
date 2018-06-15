@@ -12,6 +12,7 @@ import unalcol.agents.AgentProgram;
 import unalcol.agents.NetworkSim.environment.NetworkEnvironmentCollection;
 import unalcol.agents.NetworkSim.environment.NetworkEnvironmentPheromoneCollection;
 import unalcol.agents.NetworkSim.programs.FirstNeighborVisited;
+import unalcol.agents.NetworkSim.programs.FirstNeighborVisitedPh;
 import unalcol.agents.NetworkSim.programs.LevyWalkSynchronizationProgram;
 import unalcol.agents.NetworkSim.programs.PheromoneReplicationProgram;
 import unalcol.agents.NetworkSim.programs.PheromoneSynchronizationProgram;
@@ -56,6 +57,9 @@ public class MotionProgramSimpleFactory {
                 break;
             case "FirstNeighbor":
                 program = new FirstNeighborVisited(pf);
+                break;
+            case "FirstNeighborPh":
+                program = new FirstNeighborVisitedPh(pf);
                 break;
             case "SecondNeighbor":
                 program = new SecondNeighborVisited(pf);
