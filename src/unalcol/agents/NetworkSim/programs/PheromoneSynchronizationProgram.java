@@ -42,7 +42,7 @@ public class PheromoneSynchronizationProgram implements AgentProgram {
         act.setAttribute("location", vs.toArray()[pos]);
         /* If termite has a message then react to this message */
         
-        System.out.println("actioooon!");
+        //System.out.println("actioooon!");
         return act;
     }
 

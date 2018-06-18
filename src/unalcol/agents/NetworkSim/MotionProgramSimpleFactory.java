@@ -55,10 +55,10 @@ public class MotionProgramSimpleFactory {
             case "levywalk":
                 program = new LevyWalkSynchronizationProgram(pf);
                 break;
-            case "FirstNeighbor":
+            case "randomMarking":
                 program = new FirstNeighborVisited(pf);
                 break;
-            case "FirstNeighborPh":
+            case "carriersMarking":
                 program = new FirstNeighborVisitedPh(pf);
                 break;
             case "SecondNeighbor":
