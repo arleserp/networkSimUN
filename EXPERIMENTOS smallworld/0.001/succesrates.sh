@@ -1,0 +1,2 @@
+
+java  -classpath ../../dist/NetworkSimulator.jar unalcol.agents.NetworkSim.util.SuccessRatesReport . 500 450

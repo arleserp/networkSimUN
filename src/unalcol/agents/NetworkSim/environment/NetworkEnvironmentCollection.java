@@ -162,7 +162,7 @@ public class NetworkEnvironmentCollection extends Environment {
         //Load data in Agent
         //clone ArrayList
         p.setAttribute("currentLocation", anAgent.getLocation());
-        HashSet<GraphElements.MyVertex> me = (HashSet<GraphElements.MyVertex>) getTopology().getNeighbors(anAgent.getLocation());
+        /*HashSet<GraphElements.MyVertex> me = (HashSet<GraphElements.MyVertex>) getTopology().getNeighbors(anAgent.getLocation());
         ArrayList<GraphElements.MyVertex> tt = new ArrayList<>();
         
         for(GraphElements.MyVertex index : me){
@@ -171,7 +171,7 @@ public class NetworkEnvironmentCollection extends Environment {
                 tt.add(v3);
             }
         }
-        p.setAttribute("segundosvecinos", tt);
+        p.setAttribute("segundosvecinos", tt);*/
         
         ArrayList<Object> copy = new ArrayList<>(anAgent.getLocation().getData());
         //System.out.println("copy" + copy);
